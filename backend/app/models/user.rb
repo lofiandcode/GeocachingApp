@@ -1,2 +1,3 @@
 class User < ApplicationRecord
-end
+    has_many :usercaches
+    has_many :caches, through: :usercaches

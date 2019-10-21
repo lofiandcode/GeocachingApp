@@ -9,6 +9,7 @@ class CreateUserCaches < ActiveRecord::Migration[6.0]
       t.boolean :done
       t.string :difficulty
       t.integer :rating
+      t.text :comment
 
       t.timestamps
     end
