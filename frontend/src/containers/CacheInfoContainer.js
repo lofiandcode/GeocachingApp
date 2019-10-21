@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import CacheInfo from '../components/CacheInfo';
+import CacheBasicInfo from '../components/CacheBasicInfo';
+import CacheDetails from '../components/CacheDetails';
+import CacheLocation from '../components/CacheLocation';
+import CacheImages from '../components/CacheImages';
 
 export default class CacheInfoContainer extends Component {
     render() {
         return(
             <div>
-                <CacheInfo />
+                <CacheBasicInfo />
+                <CacheDetails />
+                <CacheLocation />
+                <CacheImages />
             </div>
         )
     }

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-export default class CacheInfo extends Component {
+export default class CacheImages extends Component {
     render() {
         return(
             <div>
-                I'm the Info. You can find me in components/CacheInfo.js
+                IMAGES CARD:
+                Images
             </div>
         )
     }
