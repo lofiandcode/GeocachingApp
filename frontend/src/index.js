@@ -7,14 +7,19 @@ import * as serviceWorker from './serviceWorker';
 import Login from './Login'
 import Navbar from './Navbar'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import UserContainer from './containers/UserContainer';
+import CacheContainer from './containers/CacheContainer';
+import MapContainer from './containers/MapContainer';
 
 ReactDOM.render(
     <div>
     <Router>
         <Navbar />
         <App />
-        {/* <Route exact path="/" component={Home} /> */}
+        <Route exact path="/caches" component={CacheContainer} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/profile" component={UserContainer} />
+        <Route exact path="/map" component={MapContainer} />
     </Router>
   </div>
   , document.getElementById('root'));

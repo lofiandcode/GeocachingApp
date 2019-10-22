@@ -4,7 +4,8 @@ class Login extends React.Component {
   render() {
     return (
       <form>
-        <h1>Login</h1>
+        <h1>Welcome to the GeoCache App</h1>
+        <label>Sign In:</label>
         <div>
           <input type="text" name="username" placeholder="Username" />
           <label htmlFor="username">Username</label>
@@ -14,6 +15,8 @@ class Login extends React.Component {
           <label htmlFor="password">Password</label>
         </div>
         <input type="submit" value="Login" />
+        {/* button to create new account form button here: */}
+        <p>Create Account...</p>
       </form>
     );
   }
