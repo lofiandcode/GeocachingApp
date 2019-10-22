@@ -5,10 +5,11 @@ class User extends Component {
     render() {
         return(
             <div>
-                USER PROFILE:
-                Photo
-                Username first/last name?
-                Bio
+                <h1>USER PROFILE</h1>
+                <div>Photo</div>
+                <div>Username</div> 
+                <div>first/last name?</div>
+                <div>Bio</div>
                 {/* edit button */}
             </div>
         )
