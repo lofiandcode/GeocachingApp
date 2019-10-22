@@ -6,9 +6,7 @@ class CreateCaches < ActiveRecord::Migration[6.0]
       t.string :size
       t.text :mystery
       t.string :hint
-      t.string :coordinates
-      t.string :difficulty
-      t.integer :rating
+      t.text :coordinates
       t.text :warnings
       t.text :description
 
