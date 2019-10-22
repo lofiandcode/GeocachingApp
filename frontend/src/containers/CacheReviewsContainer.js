@@ -5,6 +5,7 @@ export default class CacheReviewsContainer extends Component {
     render() {
         return(
             <div>
+                <h1>Reviews</h1>
                 <CacheReviews />
             </div>
         )
