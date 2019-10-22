@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Size from './Size'
 import DifficultyRating from './DifficultyRating'
 import StarRating from './StarRating'
 
@@ -7,7 +8,7 @@ export default class CacheBasicInfo extends Component {
         return(
             <div className="cache basic info">
                 <div className="cache name">Cache Name</div>
-                <div className="cache size">Cache Size</div>
+                <Size />
                 <DifficultyRating />
                 <StarRating />
                 <div className="cache creator">Created by Creator</div>
