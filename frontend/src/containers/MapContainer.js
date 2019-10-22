@@ -11,10 +11,10 @@ class MapContainer extends Component {
         super(props);
         this.state = {
           caches: [
-                  {latitude: 47.6077, longitude: -122.3355},
-                  {latitude: 37.7953, longitude: -122.4067},
-                  {latitude: -33.867886, longitude: -63.987},
-                  {latitude: 51.848637, longitude: -0.55462}
+                  {lat: 47.6077, lng: -122.3355},
+                  {lat: 37.7953, lng: -122.4067},
+                  {lat: -33.867886, lng: -63.987},
+                  {lat: 51.848637, lng: -0.55462}
                 ]
         }
       };
@@ -22,8 +22,8 @@ class MapContainer extends Component {
       displayMarkers = () => {
         return this.state.caches.map((cache, index) => {
           return <Marker key={index} id={index} position={{
-           lat: cache.latitude,
-           lng: cache.longitude
+                    lat: cache.lat,
+                    lng: cache.lng
          }}
          onClick={() => console.log("yoo cached me!")} />
         })
