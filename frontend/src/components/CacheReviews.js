@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StarRating from './StarRating';
 
 export default class CacheReviews extends Component {
     render() {
@@ -7,6 +8,8 @@ export default class CacheReviews extends Component {
                 <h2>Reviews</h2>
                 <p>I'm the Reviews. You can find me in components/CacheReviews.js</p>
                 <p>I'll look way different later.</p>
+                <p>I also rated this cache:</p>
+                <StarRating />
             </div>
         )
     }
