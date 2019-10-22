@@ -24,8 +24,6 @@ export default class CacheDetails extends Component {
                     <p>I'm the cautions. You know, like if you shouldn't try to find this cache at night. Because you're afraid of the dark. Coward.</p>
                 </div>
             </div>
-
-
         )
     }
 }
