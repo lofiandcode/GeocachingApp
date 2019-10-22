@@ -1,0 +1,2 @@
+class UserCachesController < ApplicationController
+end
