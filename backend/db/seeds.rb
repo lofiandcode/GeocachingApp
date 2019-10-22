@@ -23,17 +23,6 @@ end
 caches = []
 5.times do
 
-    randDifficulty = ''
-    randNum1 = rand(1..3)
-    case randNum1
-    when 1 
-        randDifficulty = 'easy'
-    when 2
-        randDifficulty = 'medium'
-    else
-        randDifficulty = 'hard'
-    end
-
     randSize = ''
     randNum2 = rand(1..3)
     case randNum2
@@ -49,17 +38,17 @@ caches = []
     counter = 1
     case counter
     when 1
-        randCoordinates = '47.611073, -122.325965'
+        randCoordinates = {lat: '47.611073', lng: '-122.325965'}
     when 2
-        randCoordinates = '47.6038321,-122.3300624'
+        randCoordinates = {lat: '47.6038321', lng: '-122.3300624'}
     when 3
-        randCoordinates = '47.610995, -122.334927'
+        randCoordinates = {lat: '47.610995', lng: '-122.334927'}
     when 4
-        randCoordinates = '47.608409, -122.343712'
+        randCoordinates = {lat: '47.608409', lng: '-122.343712'}
     when 5
-        randCoordinates = '47.615002, -122.345353'
+        randCoordinates = {lat: '47.615002', lng: '-122.345353'}
     else
-        randCoordinates = '47.615692, -122.334245'
+        randCoordinates = {lat: '47.615692', lng: '-122.334245'}
     end
     counter += 1
 
@@ -71,8 +60,6 @@ caches = []
             mystery: Faker::TvShows::GameOfThrones.quote,
             hint: Faker::TvShows::GameOfThrones.quote,
             coordinates: randCoordinates,
-            difficulty: randDifficulty,
-            rating: rand(1..5),
             warnings: Faker::TvShows::GameOfThrones.quote,
             description: Faker::Lorem.paragraph
         )
@@ -85,11 +72,11 @@ while i < 5 do
     randNum4 = rand(1..3)
     case randNum4
     when 1 
-        randUserSetDifficulty = 'easy'
+        randUserSetDifficulty = 17
     when 2
-        randUserSetDifficulty = 'medium'
+        randUserSetDifficulty = 50
     else
-        randUserSetDifficulty = 'hard'
+        randUserSetDifficulty = 84
     end
 
     UserCache.create(

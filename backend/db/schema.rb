@@ -21,9 +21,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_231820) do
     t.string "size"
     t.text "mystery"
     t.string "hint"
-    t.string "coordinates"
-    t.string "difficulty"
-    t.integer "rating"
+    t.text "coordinates"
     t.text "warnings"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
@@ -37,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_231820) do
     t.boolean "favorite"
     t.boolean "to_do"
     t.boolean "done"
-    t.string "difficulty"
+    t.integer "difficulty"
     t.integer "rating"
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
