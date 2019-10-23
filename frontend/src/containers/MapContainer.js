@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import FindLocation from '../components/FindLocation'
 
 const mapStyles = {
     width: '100%',
@@ -31,15 +32,18 @@ class MapContainer extends Component {
 
     render() {
         return (
+          <div>
+            <FindLocation />
             <Map
-                google={this.props.google}
-                zoom={8}
-                style={mapStyles}
-                initialCenter={{ lat: 47.444, lng: -122.176}}
+              google={this.props.google}
+              zoom={8}
+              style={mapStyles}
+              initialCenter={{ lat: 47.444, lng: -122.176}}
             >
-                {this.displayMarkers()}
-                {/* <Marker position={{ lat: 48.00, lng: -122.00}} /> */}
+              {this.displayMarkers()}
+              {/* <Marker position={{ lat: 48.00, lng: -122.00}} /> */}
             </Map>
+          </div>
         );
       }
 }
