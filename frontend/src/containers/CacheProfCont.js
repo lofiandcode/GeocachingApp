@@ -3,13 +3,15 @@ import CacheInfoContainer from './CacheInfoContainer'
 import CacheReviewsContainer from './CacheReviewsContainer'
 
 
-export default class CacheContainer extends Component {
+export default class CacheProfCont extends Component {
+
     render() {
         return(
             <div>
-                <CacheInfoContainer />
+                <CacheInfoContainer caches={this.props}/>
                 <CacheReviewsContainer />
             </div>
         )
     }
 }
+
