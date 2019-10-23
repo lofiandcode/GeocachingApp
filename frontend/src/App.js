@@ -15,7 +15,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      caches: []
+      caches: [],
+      users: []
     }  
   }
 
@@ -26,7 +27,14 @@ export default class App extends Component {
       this.setState({
         caches: data
       })
-    })
+    }).catch(err => console.log(err.message))
+    fetch("http://localhost:3000/users")
+    .then(resp => resp.json())
+    .then((data) => {
+      this.setState({
+        users: data
+      })
+    }).catch(err => console.log(err.message))
   }
   
   render() {
@@ -46,7 +54,7 @@ export default class App extends Component {
 
 
           <Route exact path="/login" component={Login} />
-          <Route exact path="/profile" component={UserContainer} />
+          <Route exact path="/profile" component={() => <UserContainer users={this.state.users} caches={this.state.caches}/>} />
           <Route exact path="/map" component={MapContainer} />
         </div>
       </Router>
