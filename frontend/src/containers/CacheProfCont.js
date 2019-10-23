@@ -4,6 +4,14 @@ import CacheReviewsContainer from './CacheReviewsContainer'
 
 
 export default class CacheProfCont extends Component {
+    componentDidMount() {
+        this.props.handleCurrentCacheUpdate(this.props.match.params.id)
+    }
+
+    // componentWillReceiveProps(props) {
+    //     console.log(props)
+    // }
+
 
     render() {
         return(
