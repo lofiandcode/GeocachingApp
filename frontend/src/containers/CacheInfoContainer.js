@@ -6,6 +6,10 @@ import CacheImages from '../components/CacheImages';
 
 
 export default class CacheInfoContainer extends Component {
+    componentDidMount(props) {
+        console.log(this.props.caches)
+    }
+    
     render() {
         return(
             <div>
