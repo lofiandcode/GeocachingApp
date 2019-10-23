@@ -1,21 +1,19 @@
-
-import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import Navbar from './Navbar'
-// import { Login, Signup } from "./components/login/index";
+import "./App.css";
+import "./index.css";
+import CacheBrowser from "./containers/CacheBrowser";
+import CacheProfCont from "./containers/CacheProfCont";
+import Login from "./Login";
 import Login from './components/login/Login'
-import UserContainer from './containers/UserContainer';
-import CacheBrowser from './containers/CacheBrowser';
-import MapContainer from './containers/MapContainer';
-import UserForm from './components/UserForm';
+import MapContainer from "./containers/MapContainer";
+import Navbar from "./Navbar";
+import React, { Component } from "react";
 import Signup from './components/login/Signup';
+import UserContainer from "./containers/UserContainer";
+import UserForm from './components/UserForm';
 
-import CacheProfCont from './containers/CacheProfCont';
-
-import './App.css';
+// import { Login, Signup } from "./components/login/index";
 // import { render } from 'react-dom';
-import './index.css';
 // import * as serviceWorker from './serviceWorker';
 
 class App extends React.Component {
@@ -54,41 +52,74 @@ export default class App extends Component {
     super();
     this.state = {
       caches: []
-    }  
+    };
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/caches")
-    .then(resp => resp.json())
-    .then((data) => {
-      this.setState({
-        caches: data
-      })
-    })
+    this.fetchCaches();
   }
-  
+
+  fetchCaches = () =>
+    fetch("http://localhost:3000/caches")
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          caches: data,
+          currentCache: {}
+        });
+      });
+
+  handleCacheClick = id => {
+    this.fetchCaches().then(() => {
+      this.setState(
+        prevState => {
+          let foundCache = {};
+          prevState.caches.forEach(cache => {
+            if (cache.id == id) {
+              foundCache = cache;
+            }
+          });
+          return {currentCache: foundCache};
+        }
+      );
+    });
+  };
+
   render() {
     return (
       <Router>
         <div className="App">
           <Navbar />
-          <Route exact path="/caches" component={() => <CacheBrowser caches={this.state.caches} />} />
+          {/* <Route exact path="/caches" component={() => <CacheBrowser caches={this.state.caches} />} handleCacheClick={this.handleCacheClick}/> */}
+          <Route
+            exact
+            path="/caches"
+            render={() => {
+              return (
+                <CacheBrowser
+                  caches={this.state.caches}
+                  handleCacheClick={this.handleCacheClick}
+                />
+              );
+            }}
+          />
 
           <Route
             path="/caches/:id"
             render={props => (
-              <CacheProfCont {...props} caches={this.state.caches} />
+              <CacheProfCont
+                {...props}
+                handleCurrentCacheUpdate={this.handleCacheClick}
+                cache={this.state.currentCache}
+              />
             )}
           />
-
-
 
           <Route exact path="/login" component={Login} />
           <Route exact path="/profile" component={UserContainer} />
           <Route exact path="/map" component={MapContainer} />
         </div>
       </Router>
-    )
+    );
   }
 }
-
