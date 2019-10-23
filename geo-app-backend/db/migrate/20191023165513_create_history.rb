@@ -1,6 +1,6 @@
-class CreateUserCaches < ActiveRecord::Migration[6.0]
+class CreateHistory < ActiveRecord::Migration[6.0]
   def change
-    create_table :user_caches do |t|
+    create_table :histories do |t|
       t.boolean :created
       t.boolean :favorite
       t.boolean :to_do

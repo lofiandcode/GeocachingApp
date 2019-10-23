@@ -79,7 +79,7 @@ while i < 5 do
         randUserSetDifficulty = 84
     end
 
-    UserCache.create(
+    History.create(
         user_id: users[i].id,
         cache_id: caches[i].id,
         created: Faker::Boolean.boolean,
