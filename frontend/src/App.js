@@ -3,8 +3,8 @@ import "./App.css";
 import "./index.css";
 import CacheBrowser from "./containers/CacheBrowser";
 import CacheProfCont from "./containers/CacheProfCont";
-import Login from "./Login";
-import Login from './components/login/Login'
+// import Login from "./Login";
+// import Login from './components/login/Login'
 import MapContainer from "./containers/MapContainer";
 import Navbar from "./Navbar";
 import React, { Component } from "react";
@@ -16,42 +16,14 @@ import UserForm from './components/UserForm';
 // import { render } from 'react-dom';
 // import * as serviceWorker from './serviceWorker';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLogginActive: true
-    };
-  }
-  
-  render() {
-  return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Switch>
-          <Route exact path="/caches" component={CacheContainer} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/newProfile" component={UserForm} />
-          <Route exact path="/profile" component={UserContainer} />
-          <Route exact path="/map" component={MapContainer} />
-        </Switch>
-      </div>
-    </Router>
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
-  )};
-};
-export default App;
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      caches: []
+      caches: [],
+      currentCache: {},
+      isLogginActive: true
     };
   }
 
@@ -115,7 +87,7 @@ export default class App extends Component {
             )}
           />
 
-          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/profile" component={UserContainer} />
           <Route exact path="/map" component={MapContainer} />
         </div>
