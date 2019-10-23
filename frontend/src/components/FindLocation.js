@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 class FindLocation extends Component {
 
     handleEnteredLocation(e) {
-        
+
     }
 
     handleSubmit(e) {
@@ -26,3 +26,5 @@ class FindLocation extends Component {
 
 
 }
+
+export default FindLocation
