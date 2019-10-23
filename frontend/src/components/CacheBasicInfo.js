@@ -9,9 +9,9 @@ export default class CacheBasicInfo extends Component {
             <div className="cache basic info">
                 <div className="cache name">{this.props.name}</div>
                 <Size size={this.props.size}/>
-                <DifficultyRating /> DIFFICULT IS HARD CODED
-                <StarRating /> STAR RATING IS HARD CODED
-                <div className="cache creator">Created by CREATOR (CODE THIS!)</div>
+                <DifficultyRating diff={this.props.diff}/> DIFFICULT IS HARD CODED
+                <StarRating star={this.props.star}/>
+                <div className="cache creator">Created by {this.props.creator}</div>
             </div>
         )
     }

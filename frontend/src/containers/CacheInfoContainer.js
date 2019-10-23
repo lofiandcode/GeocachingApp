@@ -14,9 +14,9 @@ export default class CacheInfoContainer extends Component {
                 <CacheBasicInfo
                     name={cache.name}
                     size={cache.size}
-                    // diff={cache.name}
-                    // star={cache.name}
-                    // creator={cache.name}
+                    diff={cache.average_difficulty}
+                    star={cache.average_rating}
+                    creator={cache.creator}
                 />
                 <CacheDetails
                     description={cache.description}
