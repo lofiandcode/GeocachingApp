@@ -14,6 +14,9 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
+        <div className="menu-button">
+          {/* <i className="fas fa-bars"></i> */}
+        </div>
         <NavLink
           to="/profile"
           exact
@@ -31,6 +34,14 @@ class Navbar extends React.Component {
           }}
         >Home/Login</NavLink>
         <NavLink
+          to="/signup"
+          exact
+          style={link}
+          activeStyle={{
+            background: 'royalblue'
+          }}
+        >Signup!</NavLink>
+        <NavLink
           to="/caches"
           exact
           style={link}
@@ -46,6 +57,14 @@ class Navbar extends React.Component {
             background: 'royalblue'
           }}
         >Map</NavLink>
+        <NavLink
+          to="/newProfile"
+          exact
+          style={link}
+          activeStyle={{
+            background: 'royalblue'
+          }}
+        >Create Profile</NavLink>
       </div>
     )
   }
