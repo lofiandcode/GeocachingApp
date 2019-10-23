@@ -1,4 +1,4 @@
-class CreateCaches < ActiveRecord::Migration[6.0]
+class CreateCache < ActiveRecord::Migration[6.0]
   def change
     create_table :caches do |t|
       t.string :name

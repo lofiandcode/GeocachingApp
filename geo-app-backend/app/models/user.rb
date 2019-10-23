@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-    has_many :usercaches
-    has_many :caches, through: :usercaches
+    has_many :histories
+    has_many :caches, through: :histories
 end
