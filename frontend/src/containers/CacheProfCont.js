@@ -12,7 +12,6 @@ export default class CacheProfCont extends Component {
         // console.log(this.props.cache)
         return(
             <div>
-                <h2>{this.props.cache.name}</h2>
                 <CacheInfoContainer cache={this.props.cache}/>
                 <CacheReviewsContainer />
             </div>

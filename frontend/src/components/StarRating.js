@@ -11,7 +11,8 @@ export default class StarRating extends Component {
     render() {
       return (
           <Ratings
-            rating={3.579}
+            rating={this.props.star}
+            // rating={3.579}
             // rating={this.state.rating}
             // widgetRatedColors="blue"
             // changeRating={this.changeRating}
