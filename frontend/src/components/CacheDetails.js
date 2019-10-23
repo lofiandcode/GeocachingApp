@@ -5,23 +5,23 @@ export default class CacheDetails extends Component {
         return(
             <div className="cache details">
                 <div className="detail section">
-                    <h2>Cache Description</h2>
-                    <p>I'm a description of the cache.</p>
+                    <h2>Description</h2>
+                    <p>{this.props.description}</p>
                 </div>
 
                 <div className="detail section">
-                    <h2>Cache Mystery</h2>
-                    <p>I'm text that gives you a mystery to solve. I'm soooooooo mysterious. I could even be a very large amount of text if my creator loves a complex problem.</p>
+                    <h2>Mystery</h2>
+                    <p>{this.props.mystery}</p>
                 </div>
 
                 <div className="detail section">
-                    <h2>Cache Hint</h2>
-                    <p>I'm a hint in case you can't solve the mystery. I'll be hidden until you click my section title above.</p>
+                    <h2>Hint MAKE IT HIDE!</h2>
+                    <p>{this.props.hint}</p>
                 </div>
 
                 <div className="detail section">
-                    <h2>Cache Cautions</h2>
-                    <p>I'm the cautions. You know, like if you shouldn't try to find this cache at night. Because you're afraid of the dark. Coward.</p>
+                    <h2>Warnings</h2>
+                    <p>{this.props.warnings}</p>
                 </div>
             </div>
         )

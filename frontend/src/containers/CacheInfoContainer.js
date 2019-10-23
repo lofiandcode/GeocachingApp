@@ -6,17 +6,40 @@ import CacheImages from '../components/CacheImages';
 
 
 export default class CacheInfoContainer extends Component {
-    componentDidMount(props) {
-        // console.log("hi")
-    }
     
+    divideCacheData = () => {
+        const cache = this.props.cache
+        return (
+            <div>
+                <CacheBasicInfo
+                    name={cache.name}
+                    size={cache.size}
+                    // diff={cache.name}
+                    // star={cache.name}
+                    // creator={cache.name}
+                />
+                <CacheDetails
+                    description={cache.description}
+                    mystery={cache.mystery}
+                    hint={cache.hint}
+                    warnings={cache.warnings}
+                />
+                <CacheLocation
+                    coordinates={cache.coordinates}
+                    // lat={cache.coordinates}
+                    // lng={cache.coordinates.lng}
+                />
+                <CacheImages
+                    image={cache.photo}
+                />
+            </div>
+        )
+    }
+
     render() {
         return(
             <div>
-                <CacheBasicInfo />
-                <CacheDetails />
-                <CacheLocation />
-                <CacheImages />
+                {this.divideCacheData()}
             </div>
         )
     }

@@ -8,15 +8,12 @@ export default class CacheProfCont extends Component {
         this.props.handleCurrentCacheUpdate(this.props.match.params.id)
     }
 
-    // componentWillReceiveProps(props) {
-    //     console.log(props)
-    // }
-
-
     render() {
+        // console.log(this.props.cache)
         return(
             <div>
-                <CacheInfoContainer caches={this.props}/>
+                <h2>{this.props.cache.name}</h2>
+                <CacheInfoContainer cache={this.props.cache}/>
                 <CacheReviewsContainer />
             </div>
         )

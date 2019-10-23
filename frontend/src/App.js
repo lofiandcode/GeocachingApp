@@ -37,7 +37,6 @@ export default class App extends Component {
       .then(data => {
         this.setState({
           caches: data,
-          currentCache: {}
         });
       });
 
@@ -45,7 +44,7 @@ export default class App extends Component {
     this.fetchCaches().then(() => {
       this.setState(
         prevState => {
-          let foundCache = {};
+          let foundCache = prevState.currentCache;
           prevState.caches.forEach(cache => {
             if (cache.id == id) {
               foundCache = cache;
