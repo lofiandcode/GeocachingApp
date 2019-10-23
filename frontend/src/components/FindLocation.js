@@ -1,30 +1,26 @@
 import React, { Component } from 'react'
 
+export default class FindLocation extends Component {
 
-class FindLocation extends Component {
+    // handleEnteredLocation(e) {
 
-    handleEnteredLocation(e) {
+    // }
 
-    }
+    // handleSubmit(e) {
 
-    handleSubmit(e) {
-
-    }
+    // }
 
     render() {
         return (
-            <form onSubmit={event => this.handleSubmit(event)}>
-                <input
-                    type="text"
-                    onChange={event => this.handleEnteredLocation(event)}
-                    value={this.props.location}
-                />
-                <input type="submit"/>
-            </form>
+            // <form onSubmit={event => this.handleSubmit(event)}>
+            //     <input
+            //         type="text"
+            //         onChange={event => this.handleEnteredLocation(event)}
+            //         value={this.props.location}
+            //     />
+            //     <input type="submit"/>
+            // </form>
         )
     }
-
-
 }
 
-export default FindLocation
