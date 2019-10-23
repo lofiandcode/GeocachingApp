@@ -31,6 +31,7 @@ class MapContainer extends Component {
 
     render() {
         return (
+            <FindLocation />
             <Map
                 google={this.props.google}
                 zoom={8}
