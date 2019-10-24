@@ -1,71 +1,73 @@
-import React from 'react'
+import React from 'react';
 import { NavLink } from 'react-router-dom';
- 
+import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
+
 const link = {
   width: '100px',
   padding: '12px',
-  margin: '0 6px 6px',
-  background: 'pink',
+  margin: '0 2px 2px',
   textDecoration: 'none',
-  color: 'white',
+  color: 'black',
 }
  
 class Navbar extends React.Component {
   render() {
     return (
+      <DropdownMenu>
       <div>
         <div className="menu-button">
-          {/* <i className="fas fa-bars"></i> */}
         </div>
-        <NavLink
-          to="/profile"
+        {/* <MenuItem> formerly <NavLink> */}
+        <MenuItem text="Profile"
+          location="/profile"
           exact
           style={link}
           activeStyle={{
-            background: 'royalblue'
+            background: 'green'
           }}
-        >Profile</NavLink>
-        <NavLink
-          to="/login"
+        >Profile</MenuItem>
+        <MenuItem text="Home/Login"
+          location="/login"
           exact
           style={link}
           activeStyle={{
-            background: 'royalblue'
+            background: 'green'
           }}
-        >Home/Login</NavLink>
-        <NavLink
-          to="/signup"
+        >Home/Login</MenuItem>
+        <MenuItem text="Signup!"
+          location="/signup"
           exact
           style={link}
           activeStyle={{
-            background: 'royalblue'
+            background: 'green'
           }}
-        >Signup!</NavLink>
-        <NavLink
-          to="/caches"
+        >Signup!</MenuItem>
+        <MenuItem text="Caches"
+          location="/caches"
           exact
           style={link}
           activeStyle={{
-            background: 'royalblue'
+            background: 'green'
           }}
-        >Caches</NavLink>
-        <NavLink
-          to="/map"
+        >Caches</MenuItem>
+        <MenuItem text="Map"
+          location="/map"
           exact
           style={link}
           activeStyle={{
-            background: 'royalblue'
+            background: 'green'
           }}
-        >Map</NavLink>
-        <NavLink
-          to="/newProfile"
+        >Map</MenuItem>
+        <MenuItem text="Create Profile"
+          location="/newProfile"
           exact
           style={link}
           activeStyle={{
-            background: 'royalblue'
+            background: 'green'
           }}
-        >Create Profile</NavLink>
+        >Create Profile</MenuItem>
       </div>
+      </DropdownMenu>
     )
   }
 }

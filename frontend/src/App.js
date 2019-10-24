@@ -1,6 +1,7 @@
 
 import React from 'react';
-import Login from './components/login/Login'
+import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
+import Login from './components/login/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "./App.css";
 import "./index.css";
@@ -59,6 +60,7 @@ class App extends React.Component {
       <div className="App">
         <Navbar />
         <Switch>
+          {/* <DropdownMenu > */}
         <Route
             exact
             path="/caches"
@@ -90,6 +92,7 @@ class App extends React.Component {
             />
             } />
           <Route exact path="/map" component={MapContainer} />
+          {/* </DropdownMenu> */}
         </Switch>
       </div>
     </Router>

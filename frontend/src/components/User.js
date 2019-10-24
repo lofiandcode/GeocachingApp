@@ -6,7 +6,7 @@ class User extends Component {
         return(
             <div>
                 <h2>
-                    {this.props.currentUser.username}'s PROFILE:
+                    Welcome back, {this.props.currentUser.username}!
                 </h2>
                 Photo:<div>
                 <img src={this.props.currentUser.photo}></img>

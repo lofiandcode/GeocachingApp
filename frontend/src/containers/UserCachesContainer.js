@@ -10,7 +10,6 @@ class UserCachesContainer extends Component {
         this.state = {
             caches: []
         }
-        console.log(props);
     }
 
     render() {
@@ -42,7 +41,6 @@ class UserCachesContainer extends Component {
                 </div>
             </Fragment>
         )
-    }
-}
-
+    };
+};
 export default UserCachesContainer;
