@@ -1,3 +1,3 @@
 class CacheSerializer < ActiveModel::Serializer
-  attributes :id, :name, :photo, :size, :mystery, :hint, :coordinates, :warnings, :description, :users
+  attributes :id, :name, :size,  :average_difficulty, :average_rating, :creator, :description, :mystery, :hint, :warnings, :coordinates, :photo, :histories
 end

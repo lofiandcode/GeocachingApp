@@ -10,6 +10,7 @@ export default class CacheInfoContainer extends Component {
     divideCacheData = () => {
         const cache = this.props.cache
         return (
+            
             <div>
                 <CacheBasicInfo
                     name={cache.name}
