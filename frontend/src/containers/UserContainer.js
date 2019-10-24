@@ -10,58 +10,56 @@ class UserContainer extends Component {
             // users: [],
             // all_caches: [],
             cache_index: 0,
-            // favorite_caches: [],
-            // todos: [],
-            // completed: []
             users:[],
-            currentUser: {}
+            currentUser: {
+                caches: [],
+                cache_index: 0,
+                displayCaches: []
+            },
+            displayCaches: []
         }
         // console.log(props)
+    };
 
-    constructor (props) {
-        super(props)
-        this.state = {
-            // users array holds: username, first, last, img_url, bio
-            cache_index: 0
-            // favorite_caches: [],
-            // todos: [],
-            // completed: []
-        }
-        console.log(this.props)
-    }
-    
     componentDidMount() {
         fetch("http://localhost:3000/users")
-        // .then(response=>{
-        //     console.log(response.data);
-        //     if (!response.data.length) {
-        //       this.setState({noData: true}) 
-        //     } else {
-        //       this.setState({
-        //         data:response.data, noData: false
-        //       })
-        //     }
-        //   })
         .then(resp => resp.json())
         .then((data) => {
           this.setState({
             users: data,
-            currentUser: data[0]
+            currentUser: data[0],
+            displayCaches: data[0].caches
           })
         }) 
     };
-    
-    displayFive = () => {
-        return this.props.caches.slice(this.state.cache_index, this.state.cache_index + 4)
-        return this.props.caches.slice(this.state.cache_index, this.state.cache_index +4)
-    };
 
-    fourMore = (event) => {
-        let newIndex = this.state.cache_index + 4;
-        return this.setState({
-          cache_index: newIndex + 4
-        })
-      };
+    filterCaches = (type) => {
+        if (type !== "All") {
+            const x = this.state.currentUser.histories.filter(history => history[`${type}`]);
+            const y = x.map(history => {
+                return this.state.currentUser.caches.find(cache => cache.id === history.cache_id)
+            });
+            this.setState({ 
+                displayCaches: y
+            });
+        } 
+        else {
+            this.setState({
+                displayCaches: this.state.currentUser.caches
+            })
+        }
+    };
+    
+    // displayFive = () => {
+    //     return this.state.caches.slice(this.state.cache_index, this.state.cache_index + 4)
+    // };
+
+    // fourMore = (event) => {
+    //     let newIndex = this.state.cache_index + 4;
+    //     return this.setState({
+    //       cache_index: newIndex + 4
+    //     })
+    //   };
 
     render() {
         return(
@@ -73,10 +71,16 @@ class UserContainer extends Component {
                 <strong>{this.state.currentUser.username}'s Caches:</strong>
                 <br></br>
                 <UserCachesContainer 
-                users={this.state.users}
-                currentUser={this.state.currentUser}
-                caches={this.displayFive()}
-                fourMore={this.fourMore}
+                    filterCaches={this.filterCaches}
+                    // type={this.props.type}
+                    rating={this.props.rating}
+                    difficulty={this.props.difficulty}
+                    displayCaches={this.state.displayCaches}
+                    users={this.state.users}
+                    currentUser={this.state.currentUser}
+                    // currentUser={this.displayFive()}
+                    // caches={this.displayFive()}
+                    // fourMore={this.fourMore}
                 />
             </div> 
         ) 
