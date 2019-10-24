@@ -2,20 +2,31 @@ import React, { Component } from 'react';
 import CacheReview from '../components/CacheReview';
 
 export default class CacheReviewsContainer extends Component {
+    
+    
     divideCacheData = () => {
-        
-        // map over this.props.reviews and return <CacheReview /> component; change the cache.whatever to review.whatever
-        const reviews = this.props.reviews
-        console.log("CACHE REVIEWS CONTAINER", reviews)
-        // return (
-        //     <CacheReview
-        //         star={cache.star}
-        //         diff={cache.diff}
-        //         user={cache.user}
-        //         comment={cache.comment}
-        //         // date={cache.date}
-        //     />
-        // )
+        if (this.props.cache.histories) {
+            
+            return this.props.cache.histories.map(review => {
+                let reviewer = this.props.cache.reviewer.map(rv => {
+                    if (rv[0] === review.id) {
+                        return rv[1]
+                    }
+                })
+                
+                
+                return (
+                    <CacheReview
+                        key={review.id}
+                        star={review.rating}
+                        diff={review.difficulty}
+                        reviewer={reviewer}
+                        comment={review.comment}
+                        // date={review.date}
+                    />
+                )
+            })
+        }
     }
     
     render() {
