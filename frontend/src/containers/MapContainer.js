@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-import FindLocation from '../components/FindLocation';
+// import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+// import FindLocation from '../components/FindLocation';
 // import MapStyles from '../MapStyles';
-import CurrentLocation from '../components/CurrentLocation';
+import Map from '../components/Map';
+// import CurrentLocation from '../components/CurrentLocation';
 
 const mapStyles = {
     width: '100%',
@@ -43,51 +44,32 @@ class MapContainer extends Component {
         }
       };
 
-      displayMarkers = () => {
-        return this.state.caches.map((cache, index) => {
-          return <Marker key={index} id={index} position={{
-           lat: cache.latitude,
-           lng: cache.longitude
-         }}
-         onClick={() => console.log("yoo cached me!")} />
-        })
-      }
+      // displayMarkers = () => {
+      //   return this.state.caches.map((cache, index) => {
+      //     return <Marker key={index} id={index} position={{
+      //      lat: cache.latitude,
+      //      lng: cache.longitude
+      //    }}
+      //    onClick={() => console.log("yoo cached me!")} />
+      //   })
+      // }
 
     render() {
         return (
-          <div>
-            <FindLocation />
-            <CurrentLocation
-              centerAroundCurrentLocation
+          <div style={{ margin: '100px' }}>
+            <Map
               google={this.props.google}
-            >
-            {/* <Map
-              google={this.props.google}
-              zoom={8}
-              style={mapStyles}
-              initialCenter={{ lat: 47.444, lng: -122.176}}
-              // style={{styles: MapStyles}}
-            > */}
-              {this.displayMarkers()}
-              <Marker 
-                onClick={this.onMarkerClick}
-                name={"I see you!"} 
-                // position={{ lat: 48.00, lng: -122.00}} 
-                />
-              <InfoWindow
-                marker={this.state.activeMarker}
-                visible={this.state.showingInfoWindow}
-                onClose={this.onClose}>
-              <div>
-                <h4>{this.state.selectedPlace.name}</h4>
-              </div>
-              </InfoWindow>
-            {/* </Map> */}
-            </CurrentLocation>
-          </div>
+              center={{lat: 18.5204, lng: 73.8567}}
+              height='300px'
+              zoom={15}
+            />
+			    </div>
         );
       }
 }
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyCAfBTkrlt57CanfbaWZK9YpYOjCfLHmo4'
-  })(MapContainer);
+export default MapContainer
+
+// GoogleApiWrapper({
+//     apiKey: 'AIzaSyCAfBTkrlt57CanfbaWZK9YpYOjCfLHmo4'
+//   })(MapContainer);
+
