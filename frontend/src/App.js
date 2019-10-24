@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import Navbar from './Navbar'
 // import { Login, Signup } from "./components/login/index";
 import Login from './components/login/Login'
@@ -22,21 +20,55 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLogginActive: true
+      isLogginActive: true,
+      users: [],
+      caches: [],
+      // currentUser: {}
     };
-  }
-  
+  };
+
+  componentDidMount() {
+    fetch("http://localhost:3000/caches")
+    .then(resp => resp.json())
+    .then((data) => {
+      this.setState({
+        caches: data
+      })
+    });
+    // fetch("http://localhost:3000/users")
+    // .then(resp => resp.json())
+    // .then((data) => {
+    //   this.setState({
+    //     users: data,
+    //     // currentUser: data[0]
+    //   });
+    // });
+  };
+
   render() {
   return (
     <Router>
       <div className="App">
         <Navbar />
         <Switch>
-          <Route exact path="/caches" component={CacheContainer} />
+          {/* <Route exact path="/caches" component={CacheContainer} /> */}
+          <Route exact path="/caches" component={() => <CacheBrowser caches={this.state.caches} />} />
+
+          <Route
+            path="/caches/:id"
+            render={props => (
+              <CacheProfCont {...props} caches={this.state.caches} />
+            )}
+          />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/newProfile" component={UserForm} />
-          <Route exact path="/profile" component={UserContainer} />
+          <Route exact path="/profile" component={() =>       
+            <UserContainer users={this.state.users} caches={this.state.caches} 
+            
+            // currentUser={this.state.currentUser}
+            />
+            } />
           <Route exact path="/map" component={MapContainer} />
         </Switch>
       </div>
@@ -49,46 +81,46 @@ class App extends React.Component {
 };
 export default App;
 
-export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      caches: []
-    }  
-  }
+// export default class App extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       caches: []
+//     }  
+//   }
 
-  componentDidMount() {
-    fetch("http://localhost:3000/caches")
-    .then(resp => resp.json())
-    .then((data) => {
-      this.setState({
-        caches: data
-      })
-    })
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:3000/caches")
+  //   .then(resp => resp.json())
+  //   .then((data) => {
+  //     this.setState({
+  //       caches: data
+  //     })
+  //   })
+  // }
   
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <Navbar />
-          <Route exact path="/caches" component={() => <CacheBrowser caches={this.state.caches} />} />
+//   render() {
+//     return (
+//       <Router>
+//         <div className="App">
+//           <Navbar />
+//           <Route exact path="/caches" component={() => <CacheBrowser caches={this.state.caches} />} />
 
-          <Route
-            path="/caches/:id"
-            render={props => (
-              <CacheProfCont {...props} caches={this.state.caches} />
-            )}
-          />
+//           <Route
+//             path="/caches/:id"
+//             render={props => (
+//               <CacheProfCont {...props} caches={this.state.caches} />
+//             )}
+//           />
 
 
 
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/profile" component={UserContainer} />
-          <Route exact path="/map" component={MapContainer} />
-        </div>
-      </Router>
-    )
-  }
-}
+//           <Route exact path="/login" component={Login} />
+//           <Route exact path="/profile" component={UserContainer} />
+//           <Route exact path="/map" component={MapContainer} />
+//         </div>
+//       </Router>
+//     )
+//   }
+// }
 

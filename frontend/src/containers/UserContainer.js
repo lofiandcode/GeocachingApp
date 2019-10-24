@@ -4,18 +4,44 @@ import UserCachesContainer from './UserCachesContainer'
 
 // this is the USER PROFILE
 class UserContainer extends Component {
-    state = {
-        users: [],
-        // users array holds: username, first, last, img_url, bio
-        all_caches: [],
-        cache_index: 0
-        // favorite_caches: [],
-        // todos: [],
-        // completed: []
+    constructor() {
+        super();
+        this.state = {
+            // users: [],
+            // all_caches: [],
+            cache_index: 0,
+            // favorite_caches: [],
+            // todos: [],
+            // completed: []
+            users:[],
+            currentUser: {}
+        }
+        // console.log(props)
     }
-
+    
+    componentDidMount() {
+        fetch("http://localhost:3000/users")
+        // .then(response=>{
+        //     console.log(response.data);
+        //     if (!response.data.length) {
+        //       this.setState({noData: true}) 
+        //     } else {
+        //       this.setState({
+        //         data:response.data, noData: false
+        //       })
+        //     }
+        //   })
+        .then(resp => resp.json())
+        .then((data) => {
+          this.setState({
+            users: data,
+            currentUser: data[0]
+          })
+        }) 
+    };
+    
     displayFive = () => {
-        return this.state.all_caches.slice(this.state.cache_index, this.state.cache_index +4)
+        return this.props.caches.slice(this.state.cache_index, this.state.cache_index + 4)
     };
 
     fourMore = (event) => {
@@ -28,13 +54,15 @@ class UserContainer extends Component {
     render() {
         return(
             <div>
-                
                 <User 
+                currentUser={this.state.currentUser}
                 />
                 <br></br>
-                user caches list here: 
-                <br></br>...
+                <strong>{this.state.currentUser.username}'s Caches:</strong>
+                <br></br>
                 <UserCachesContainer 
+                users={this.state.users}
+                currentUser={this.state.currentUser}
                 caches={this.displayFive()}
                 fourMore={this.fourMore}
                 />
