@@ -7,11 +7,11 @@ export default class CacheBasicInfo extends Component {
     render() {
         return(
             <div className="cache basic info">
-                <div className="cache name">Cache Name</div>
-                <Size />
-                <DifficultyRating />
-                <StarRating />
-                <div className="cache creator">Created by Creator</div>
+                <div className="cache name">{this.props.name}</div>
+                <Size size={this.props.size}/>
+                <DifficultyRating diff={this.props.diff}/>
+                <StarRating star={this.props.star}/>
+                <div className="cache creator">Created by {this.props.creator}</div>
             </div>
         )
     }
