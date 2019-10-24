@@ -16,20 +16,8 @@ class UserContainer extends Component {
             users:[],
             currentUser: {}
         }
-        // console.log(props)
-
-    constructor (props) {
-        super(props)
-        this.state = {
-            // users array holds: username, first, last, img_url, bio
-            cache_index: 0
-            // favorite_caches: [],
-            // todos: [],
-            // completed: []
-        }
-        console.log(this.props)
     }
-    
+
     componentDidMount() {
         fetch("http://localhost:3000/users")
         // .then(response=>{
@@ -53,7 +41,7 @@ class UserContainer extends Component {
     
     displayFive = () => {
         return this.props.caches.slice(this.state.cache_index, this.state.cache_index + 4)
-        return this.props.caches.slice(this.state.cache_index, this.state.cache_index +4)
+
     };
 
     fourMore = (event) => {
