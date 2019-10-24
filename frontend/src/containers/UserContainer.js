@@ -39,16 +39,12 @@ class UserContainer extends Component {
         // }) 
     };
     
-    displayFive = () => {
-        // return this.props.caches.slice(this.state.cache_index, this.state.cache_index + 4)
-    };
-
-    fourMore = (event) => {
-        let newIndex = this.state.cache_index + 4;
-        return this.setState({
-          cache_index: newIndex + 4
-        })
-      };
+    // fourMore = (event) => {
+    //     let newIndex = this.state.cache_index + 4;
+    //     return this.setState({
+    //       cache_index: newIndex + 4
+    //     })
+    //   };
 
     render() {
         return(
@@ -62,8 +58,8 @@ class UserContainer extends Component {
                 <UserCachesContainer 
                 users={this.state.users}
                 currentUser={this.state.currentUser}
-                caches={this.displayFive()}
-                fourMore={this.fourMore}
+                // caches={this.displayFive()}
+                // fourMore={this.fourMore}
                 />
             </div> 
         ) 
