@@ -5,12 +5,13 @@ import UserSearchBar from '../components/UserSearchBar'
 // import UserForm from '../components/UserForm';
 
 class UserCachesContainer extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props);
         this.state = {
           caches: [],
           displayCaches: []
         }
+        console.log(props);
       }
 
     filterCaches = (type) => {
@@ -26,6 +27,8 @@ class UserCachesContainer extends Component {
       };
     
     render() {
+        // console.log(this.props)
+        console.log(this.props.currentUser.caches)
         return(
         <Fragment>
             {/* <UserForm />  */}
@@ -38,11 +41,15 @@ class UserCachesContainer extends Component {
                     rating={this.props.rating}
                     difficulty={this.props.difficulty}
                 />
-                {this.props.caches.map(cache => {
-                    return <UserCaches 
-                                key={cache.id}
-                                cache={cache} />
-                })}
+                {this.props.currentUser.caches ? <div>{ this.props.currentUser.caches.map((cache,index) =>
+                    <UserCaches key={index} 
+                    cacheName={cache.name}  
+                    cachePhoto={cache.photo}
+                    cacheHint={cache.hint}
+                    />
+
+                    )} </div>
+                    : <div> Loading ... </div>}
                 <MoreButton fourMore={this.props.fourMore}/>
             </div>
         </Fragment>
