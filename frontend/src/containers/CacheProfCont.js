@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import CacheInfoContainer from './CacheInfoContainer'
-import CacheReviewsContainer from './CacheReviewsContainer'
+import CacheInfoContainer from './CacheInfoContainer';
+import CacheReviewsContainer from './CacheReviewsContainer';
+import CacheNewForm from '../components/CacheNewForm';
 
 
 export default class CacheProfCont extends Component {
