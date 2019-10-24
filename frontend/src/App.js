@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Login from './components/login/Login'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -8,9 +7,11 @@ import CacheBrowser from "./containers/CacheBrowser";
 import CacheProfCont from "./containers/CacheProfCont";
 import MapContainer from "./containers/MapContainer";
 import Navbar from "./Navbar";
+import React, { Component } from "react";
 import Signup from './components/login/Signup';
 import UserContainer from "./containers/UserContainer";
 import UserForm from './components/UserForm';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +24,21 @@ class App extends React.Component {
       // currentUser: {}
     };
   };
+
+// import { Login, Signup } from "./components/login/index";
+// import { render } from 'react-dom';
+// import * as serviceWorker from './serviceWorker';
+
+
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      caches: [],
+      currentCache: {},
+      isLogginActive: true
+    };
+  }
   componentDidMount() {
     this.fetchCaches();
   }
@@ -100,3 +116,8 @@ class App extends React.Component {
   )};
 };
 export default App;
+        </div>
+      </Router>
+    );
+  }
+}

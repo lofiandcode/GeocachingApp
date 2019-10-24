@@ -19,6 +19,7 @@ class UserContainer extends Component {
         }
         // console.log(props)
     };
+    }
 
     componentDidMount() {
         fetch("http://localhost:3000/users")
