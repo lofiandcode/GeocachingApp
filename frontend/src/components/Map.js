@@ -215,6 +215,18 @@ class Map extends Component{
 					           defaultZoom={ this.props.zoom }
 					           defaultCenter={{ lat: this.state.mapPosition.lat, lng: this.state.mapPosition.lng }}
 					>
+						{/* For Auto complete Search Box */}
+						<Autocomplete
+							style={{
+								width: '100%',
+								height: '40px',
+								paddingLeft: '16px',
+								marginTop: '2px',
+								marginBottom: '500px'
+							}}
+							onPlaceSelected={ this.onPlaceSelected }
+							types={['(regions)']}
+						/>
 						{/* InfoWindow on top of marker */}
 						<InfoWindow
 							onClose={this.onInfoWindowClose}
@@ -232,18 +244,6 @@ class Map extends Component{
 						        position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }}
 						/>
 						<Marker />
-						{/* For Auto complete Search Box */}
-						<Autocomplete
-							style={{
-								width: '100%',
-								height: '40px',
-								paddingLeft: '16px',
-								marginTop: '2px',
-								marginBottom: '500px'
-							}}
-							onPlaceSelected={ this.onPlaceSelected }
-							types={['(regions)']}
-						/>
 					</GoogleMap>
 				)
 			)
@@ -251,7 +251,7 @@ class Map extends Component{
 		let map;
 		if( this.props.center.lat !== undefined ) {
 			map = <div>
-				<div>
+				{/*<div>
 					<div className="form-group">
 						<label htmlFor="">City</label>
 						<input type="text" name="city" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.city }/>
@@ -268,7 +268,7 @@ class Map extends Component{
 						<label htmlFor="">Address</label>
 						<input type="text" name="address" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.address }/>
 					</div>
-				</div>
+				</div>*/}
 
 				<AsyncMap
 					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAfBTkrlt57CanfbaWZK9YpYOjCfLHmo4&libraries=places"

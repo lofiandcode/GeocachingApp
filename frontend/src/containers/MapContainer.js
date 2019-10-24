@@ -56,10 +56,10 @@ class MapContainer extends Component {
 
     render() {
         return (
-          <div style={{ margin: '100px' }}>
+          <div style={{ margin: '10px' }}>
             <Map
               google={this.props.google}
-              center={{lat: 18.5204, lng: 73.8567}}
+              center={{lat: 47.6093, lng: -122.3384988}}
               height='300px'
               zoom={15}
             />
