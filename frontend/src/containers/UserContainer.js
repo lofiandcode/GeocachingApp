@@ -31,17 +31,16 @@ class UserContainer extends Component {
         //     }
         //   })
         .then(resp => resp.json())
-        .then((data) => {
-          this.setState({
-            users: data,
-            currentUser: data[0]
-          })
-        }) 
+        // .then((data) => {
+        //   this.setState({
+        //     users: data,
+        //     currentUser: data[0]
+        //   })
+        // }) 
     };
     
     displayFive = () => {
-        return this.props.caches.slice(this.state.cache_index, this.state.cache_index + 4)
-
+        // return this.props.caches.slice(this.state.cache_index, this.state.cache_index + 4)
     };
 
     fourMore = (event) => {

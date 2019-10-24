@@ -3,8 +3,7 @@ import "./App.css";
 import "./index.css";
 import CacheBrowser from "./containers/CacheBrowser";
 import CacheProfCont from "./containers/CacheProfCont";
-// import Login from "./Login";
-// import Login from './components/login/Login'
+import Login from './components/login/Login'
 import MapContainer from "./containers/MapContainer";
 import Navbar from "./Navbar";
 import React, { Component } from "react";
@@ -62,9 +61,25 @@ export default class App extends Component {
         <div className="App">
           <Navbar />
           {/* <Route exact path="/caches" component={() => <CacheBrowser caches={this.state.caches} />} handleCacheClick={this.handleCacheClick}/> */}
+          
           <Route
-            exact
-            path="/caches"
+            exact path="/login"
+            render={() => {
+              return (
+                <Login />
+              )
+            }}
+          />
+          <Route
+            exact path="/signup"
+            render={() => {
+              return (
+                <Signup />
+              )
+            }}
+          />
+          <Route
+            exact path="/caches"
             render={() => {
               return (
                 <CacheBrowser
