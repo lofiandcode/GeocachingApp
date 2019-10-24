@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import DifficultyRating from './DifficultyRating';
 import StarRating from './StarRating';
 
-export default class CacheReviews extends Component {
+export default class CacheReview extends Component {
     render() {
+        console.log(this.props)
         return(
             <div className="reviews">
                 <div className="rating">4.0</div>

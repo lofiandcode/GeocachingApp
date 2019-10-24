@@ -13,7 +13,7 @@ export default class CacheProfCont extends Component {
         return(
             <div>
                 <CacheInfoContainer cache={this.props.cache}/>
-                <CacheReviewsContainer />
+                <CacheReviewsContainer reviews={this.props.cache.histories}/>
             </div>
         )
     }
