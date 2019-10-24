@@ -4,8 +4,7 @@ const UserCaches = (props) => {
     return (
         <div className="userCacheDisplay">
             <div className="field" />
-            USER PROFILE: CACHES card will
-                 list of caches 
+            USER PROFILE: {props.cache.name}
         </div>
     )
 }

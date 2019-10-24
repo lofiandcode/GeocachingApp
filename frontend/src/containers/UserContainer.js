@@ -4,18 +4,20 @@ import UserCachesContainer from './UserCachesContainer'
 
 // this is the USER PROFILE
 class UserContainer extends Component {
-    state = {
-        users: [],
-        // users array holds: username, first, last, img_url, bio
-        all_caches: [],
-        cache_index: 0
-        // favorite_caches: [],
-        // todos: [],
-        // completed: []
+    constructor (props) {
+        super(props)
+        this.state = {
+            // users array holds: username, first, last, img_url, bio
+            cache_index: 0
+            // favorite_caches: [],
+            // todos: [],
+            // completed: []
+        }
+        console.log(this.props)
     }
 
     displayFive = () => {
-        return this.state.all_caches.slice(this.state.cache_index, this.state.cache_index +4)
+        return this.props.caches.slice(this.state.cache_index, this.state.cache_index +4)
     };
 
     fourMore = (event) => {
@@ -38,7 +40,7 @@ class UserContainer extends Component {
                 caches={this.displayFive()}
                 fourMore={this.fourMore}
                 />
-            </div>
+            </div> 
         ) 
     }
 
