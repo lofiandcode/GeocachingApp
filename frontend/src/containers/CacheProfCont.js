@@ -4,12 +4,16 @@ import CacheReviewsContainer from './CacheReviewsContainer'
 
 
 export default class CacheProfCont extends Component {
+    componentDidMount() {
+        this.props.handleCurrentCacheUpdate(this.props.match.params.id)
+    }
 
     render() {
+        // console.log(this.props.cache)
         return(
             <div>
-                <CacheInfoContainer caches={this.props}/>
-                <CacheReviewsContainer />
+                <CacheInfoContainer cache={this.props.cache}/>
+                <CacheReviewsContainer reviews={this.props.cache.histories}/>
             </div>
         )
     }

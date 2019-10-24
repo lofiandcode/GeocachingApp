@@ -9,7 +9,7 @@ require 'faker'
 
 
 users = []
-5.times do
+3.times do
     users.push(
         User.create(
             username: Faker::Name.name, 
@@ -21,7 +21,7 @@ users = []
 end
 
 caches = []
-5.times do
+9.times do
 
     randSize = ''
     randNum2 = rand(1..3)
@@ -47,6 +47,12 @@ caches = []
         randCoordinates = {lat: '47.608409', lng: '-122.343712'}
     when 5
         randCoordinates = {lat: '47.615002', lng: '-122.345353'}
+    when 6
+        randCoordinates = {lat: '47.610358', lng: '-122.329581'}
+    when 7
+        randCoordinates = {lat: '47.611904', lng: '-122.325569'} 
+    when 8
+        randCoordinates = {lat: '47.613576', lng: '-122.337325'} 
     else
         randCoordinates = {lat: '47.615692', lng: '-122.334245'}
     end
@@ -67,7 +73,7 @@ caches = []
 end
 
 i = 0
-while i < 5 do
+while i < 9 do
     randUserSetDifficulty = ''
     randNum4 = rand(1..3)
     case randNum4
@@ -79,17 +85,43 @@ while i < 5 do
         randUserSetDifficulty = 84
     end
 
-    History.create(
-        user_id: users[i].id,
-        cache_id: caches[i].id,
-        created: Faker::Boolean.boolean,
-        favorite: Faker::Boolean.boolean,
-        to_do: Faker::Boolean.boolean,
-        done: Faker::Boolean.boolean,
-        difficulty: randUserSetDifficulty,
-        rating: rand(1..5),
-        comment: Faker::Games::WorldOfWarcraft.quote 
-    )
+    # if i < 3 
+        History.create(
+            user_id: users[0].id,
+            cache_id: caches[i].id,
+            created: Faker::Boolean.boolean,
+            favorite: Faker::Boolean.boolean,
+            to_do: Faker::Boolean.boolean,
+            done: Faker::Boolean.boolean,
+            difficulty: randUserSetDifficulty,
+            rating: rand(1..5),
+            comment: Faker::Games::WorldOfWarcraft.quote 
+        )
+    # elsif i >= 3 && i < 6
+        History.create(
+            user_id: users[1].id,
+            cache_id: caches[i].id,
+            created: Faker::Boolean.boolean,
+            favorite: Faker::Boolean.boolean,
+            to_do: Faker::Boolean.boolean,
+            done: Faker::Boolean.boolean,
+            difficulty: randUserSetDifficulty,
+            rating: rand(1..5),
+            comment: Faker::Games::WorldOfWarcraft.quote 
+        )
+    # else
+        History.create(
+            user_id: users[2].id,
+            cache_id: caches[i].id,
+            created: Faker::Boolean.boolean,
+            favorite: Faker::Boolean.boolean,
+            to_do: Faker::Boolean.boolean,
+            done: Faker::Boolean.boolean,
+            difficulty: randUserSetDifficulty,
+            rating: rand(1..5),
+            comment: Faker::Games::WorldOfWarcraft.quote 
+        )
+    # end
     i += 1
 end
 
@@ -97,7 +129,4 @@ end
 
 
 puts "Data Seeded."
-# caches = []
-# for(i=0;i<10;i++) {
-#     caches.push(Cache.create())
-# }
+
