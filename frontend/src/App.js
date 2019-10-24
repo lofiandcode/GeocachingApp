@@ -5,12 +5,21 @@ import "./App.css";
 import "./index.css";
 import CacheBrowser from "./containers/CacheBrowser";
 import CacheProfCont from "./containers/CacheProfCont";
+
+import index from "./components/login/index"
+import Login from "./components/login/Login"
+import Signup from "./components/login/Signup"
+import style from "./components/login/style.scss"
+// import Login from "./Login";
+// import Login from './components/login/Login'
+
 import MapContainer from "./containers/MapContainer";
 import Navbar from "./Navbar";
 import React, { Component } from "react";
-import Signup from './components/login/Signup';
+// import Signup from './components/login/Signup';
 import UserContainer from "./containers/UserContainer";
 import UserForm from './components/UserForm';
+import CacheNewForm from './components/CacheNewForm'
 
 
 class App extends React.Component {
@@ -70,12 +79,27 @@ export default class App extends Component {
   };
 
   render() {
+
+    return (
+      <Router>
+        <div className="App">
+          <Navbar />
+          {/* <Route exact path="/caches" component={() => <CacheBrowser caches={this.state.caches} />} handleCacheClick={this.handleCacheClick}/> */}
+          
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/profile" component={UserContainer} />
+          <Route exact path="/map" component={MapContainer} />
+          
+          <Route
+
   return (
     <Router>
       <div className="App">
         <Navbar />
         <Switch>
         <Route
+
             exact
             path="/caches"
             render={() => {
@@ -97,6 +121,21 @@ export default class App extends Component {
               />
             )}
           />
+
+
+          <Route
+            exact
+            path="/newcache"
+            render={() => {
+              return (
+                <CacheNewForm />
+              );
+            }}
+          />
+
+          {/* <Route exact path="/login" component={Login} /> */}
+          <Route exact path="/profile" component={UserContainer} />
+
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/newProfile" component={UserForm} />
@@ -105,6 +144,7 @@ export default class App extends Component {
             // currentUser={this.state.currentUser}
             />
             } />
+
           <Route exact path="/map" component={MapContainer} />
         </Switch>
       </div>
