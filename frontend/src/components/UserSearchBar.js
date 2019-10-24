@@ -6,8 +6,8 @@ const UserSearchBar = (props) => {
 
       <strong>Sort by:</strong>
       <label>
-        {/* <input type="radio" value="Type" checked={null} onChange={null}/>
-        Type */}
+        <input type="radio" value="Type" checked={null} onChange={null}/>
+        Type
       </label>
       <label>
         <input type="radio" value="Rating" checked={null} onChange={null}/>
@@ -22,10 +22,10 @@ const UserSearchBar = (props) => {
       <label>
         <strong>Filter:</strong>
         <select onChange={(e)=>props.filterCaches(e.target.value)}>
+          <option value="Completed">Caches Completed</option>
+          <option value="Favorites">Favorites</option>
+          <option value="To-do">To-do's</option>
           <option value="All">All</option>
-          <option value="done">Caches Completed</option>
-          <option value="favorite">Favorites</option>
-          <option value="to_do">To-do's</option>
         </select>
       </label>
 
