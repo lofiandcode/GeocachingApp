@@ -26,22 +26,22 @@ class Navbar extends React.Component {
             background: 'green'
           }}
         >Profile</MenuItem>
-        <MenuItem text="Home/Login"
+        {/* <MenuItem text="Home/Login"
           location="/login"
           exact
           style={link}
           activeStyle={{
             background: 'green'
           }}
-        >Home/Login</MenuItem>
-        <MenuItem text="Signup!"
+        >Home/Login</MenuItem> */}
+        {/* <MenuItem text="Signup!"
           location="/signup"
           exact
           style={link}
           activeStyle={{
             background: 'green'
           }}
-        >Signup!</MenuItem>
+        >Signup!</MenuItem> */}
         <MenuItem text="Caches"
           location="/caches"
           exact
@@ -58,14 +58,14 @@ class Navbar extends React.Component {
             background: 'green'
           }}
         >Map</MenuItem>
-        <MenuItem text="Create Profile"
+        {/* <MenuItem text="Create Profile"
           location="/newProfile"
           exact
           style={link}
           activeStyle={{
             background: 'green'
           }}
-        >Create Profile</MenuItem>
+        >Create Profile</MenuItem> */}
       </div>
       </DropdownMenu>
     )

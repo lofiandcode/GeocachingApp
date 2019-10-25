@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
 import Login from './components/login/Login';
@@ -83,9 +82,9 @@ class App extends React.Component {
               />
             )}
           />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/newProfile" component={UserForm} />
+          {/* <Route exact path="/login" component={Login} /> */}
+          {/* <Route exact path="/signup" component={Signup} /> */}
+          {/* <Route exact path="/newProfile" component={UserForm} /> */}
           <Route exact path="/profile" component={() =>       
             <UserContainer users={this.state.users} caches={this.state.caches} 
             // currentUser={this.state.currentUser}
