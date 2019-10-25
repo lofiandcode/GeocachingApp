@@ -4,6 +4,24 @@ class HistoriesController < ApplicationController
         render :json => @histories
     end
 
+    def show
+        @histories = History.find(params[:id])
+        render :json => @histories
+    end
+    
+    def new
+        @histories = History.new
+    end
+
+    def create
+        @histories = History.new(history_params)
+        @histories.save
+        render :json => @histories
+    end
+
+    def history_params
+        params.require(:history).permit(:id, :created, :favorite, :to_do, :done, :difficulty, :rating, :comment, :user_id, :cache_id)
+    end
     # def show
     #     @user_cache = History.find(params[:id])
     #     render :json => @user_cache
