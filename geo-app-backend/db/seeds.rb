@@ -21,6 +21,7 @@ users = []
 end
 
 caches = []
+counter = 1
 9.times do
 
     randSize = ''
@@ -35,26 +36,25 @@ caches = []
     end
 
     randCoordinates = ''
-    counter = 1
     case counter
     when 1
-        randCoordinates = {lat: '47.611073', lng: '-122.325965'}
+        randCoordinates = {lat: 47.611073, lng: -122.325965}
     when 2
-        randCoordinates = {lat: '47.6038321', lng: '-122.3300624'}
+        randCoordinates = {lat: 47.6038321, lng: -122.3300624}
     when 3
-        randCoordinates = {lat: '47.610995', lng: '-122.334927'}
+        randCoordinates = {lat: 47.610995, lng: -122.334927}
     when 4
-        randCoordinates = {lat: '47.608409', lng: '-122.343712'}
+        randCoordinates = {lat: 47.608409, lng: -122.343712}
     when 5
-        randCoordinates = {lat: '47.615002', lng: '-122.345353'}
+        randCoordinates = {lat: 47.615002, lng: -122.345353}
     when 6
-        randCoordinates = {lat: '47.610358', lng: '-122.329581'}
+        randCoordinates = {lat: 47.610358, lng: -122.329581}
     when 7
-        randCoordinates = {lat: '47.611904', lng: '-122.325569'} 
+        randCoordinates = {lat: 47.611904, lng: -122.325569} 
     when 8
-        randCoordinates = {lat: '47.613576', lng: '-122.337325'} 
+        randCoordinates = {lat: 47.613576, lng: -122.337325} 
     else
-        randCoordinates = {lat: '47.615692', lng: '-122.334245'}
+        randCoordinates = {lat: 47.615692, lng: -122.334245}
     end
     counter += 1
 
