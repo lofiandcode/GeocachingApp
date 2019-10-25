@@ -1,17 +1,14 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { Component } from "react";
+import Login from './components/login/Login';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import "./App.css";
 import "./index.css";
 import CacheBrowser from "./containers/CacheBrowser";
 import CacheProfCont from "./containers/CacheProfCont";
-// import index from "./components/login/index"
-import Login from "./components/login/Login"
 import Signup from "./components/login/Signup"
 import style from "./components/login/style.scss"
-// import Login from "./Login";
-// import Login from './components/login/Login'
 import MapContainer from "./containers/MapContainer";
 import Navbar from "./Navbar";
-import React, { Component } from "react";
 // import Signup from './components/login/Signup';
 import UserContainer from "./containers/UserContainer";
 import UserForm from './components/UserForm';

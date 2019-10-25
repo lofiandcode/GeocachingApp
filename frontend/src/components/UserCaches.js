@@ -2,15 +2,13 @@ import React from 'react';
 
 const UserCaches = (props) => {
     return (
-        // <div className="userCacheDisplay">
-// 
-                {/* <div>{props.cacheName}</div> */}
-                /* <div><img src={props.cachePhoto}></img></div> */
-                /* <div>{props.cacheHint}</div> */
-            /* <div className="field" /> */
-            // USER PROFILE: {props.cache.name}
-// 
-        // </div>
+        <div className="userCacheDisplay">
+
+                Cache name: {props.cacheName}
+                <div src={props.cachePhoto}></div>
+                <div>Hint: {props.cacheHint}</div><br></br>
+            {/* <div className="field" /> */}
+        </div>
     )
 }
 export default UserCaches;
