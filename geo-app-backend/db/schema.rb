@@ -53,6 +53,6 @@ ActiveRecord::Schema.define(version: 2019_10_23_165513) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "histories", "caches", column: "cache_id"
+  add_foreign_key "histories", "caches"
   add_foreign_key "histories", "users"
 end
