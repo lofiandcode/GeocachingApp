@@ -50,6 +50,16 @@ class Navbar extends React.Component {
           }}
         >Caches</NavLink>
         <NavLink
+          to="/newcache"
+          exact
+          style={link}
+          activeStyle={{
+            background: 'royalblue'
+          }}
+        >
+          New Cache
+        </NavLink>
+        <NavLink
           to="/map"
           exact
           style={link}

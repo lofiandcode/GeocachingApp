@@ -3,18 +3,19 @@ import "./App.css";
 import "./index.css";
 import CacheBrowser from "./containers/CacheBrowser";
 import CacheProfCont from "./containers/CacheProfCont";
+// import index from "./components/login/index"
+import Login from "./components/login/Login"
+import Signup from "./components/login/Signup"
+import style from "./components/login/style.scss"
 // import Login from "./Login";
 // import Login from './components/login/Login'
 import MapContainer from "./containers/MapContainer";
 import Navbar from "./Navbar";
 import React, { Component } from "react";
-import Signup from './components/login/Signup';
+// import Signup from './components/login/Signup';
 import UserContainer from "./containers/UserContainer";
 import UserForm from './components/UserForm';
-
-// import { Login, Signup } from "./components/login/index";
-// import { render } from 'react-dom';
-// import * as serviceWorker from './serviceWorker';
+import CacheNewForm from './components/CacheNewForm'
 
 
 export default class App extends Component {
@@ -62,9 +63,25 @@ export default class App extends Component {
         <div className="App">
           <Navbar />
           {/* <Route exact path="/caches" component={() => <CacheBrowser caches={this.state.caches} />} handleCacheClick={this.handleCacheClick}/> */}
+          
           <Route
-            exact
-            path="/caches"
+            exact path="/login"
+            render={() => {
+              return (
+                <Login />
+              )
+            }}
+          />
+          <Route
+            exact path="/signup"
+            render={() => {
+              return (
+                <Signup />
+              )
+            }}
+          />
+          <Route
+            exact path="/caches"
             render={() => {
               return (
                 <CacheBrowser
@@ -84,6 +101,16 @@ export default class App extends Component {
                 cache={this.state.currentCache}
               />
             )}
+          />
+
+          <Route
+            exact
+            path="/newcache"
+            render={() => {
+              return (
+                <CacheNewForm />
+              );
+            }}
           />
 
           {/* <Route exact path="/login" component={Login} /> */}
