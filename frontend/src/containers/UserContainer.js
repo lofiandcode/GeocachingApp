@@ -48,6 +48,21 @@ class UserContainer extends Component {
             })
         }
     };
+
+    // sortCaches = (value) => {
+    //     console.log("sort method fires")
+    //     // if input value "alphabetical"..., if "price"...
+    //     let arr = [];
+    //     if (value === "Rating") {
+    //       arr = this.state.displayCaches.sort((a, b) => a.name > b.name ? 1 : -1)
+    //     }
+    //     else if (value === "Difficulty") {
+    //       arr = this.state.displayCaches.sort((a, b) => a.price > b.price ? 1 : -1)
+    //     }
+    //     this.setState({
+    //       displayStocks: arr
+    //     })
+    //   };    
     
     // displayFive = () => {
     //     return this.state.caches.slice(this.state.cache_index, this.state.cache_index + 4)
@@ -71,6 +86,7 @@ class UserContainer extends Component {
                 <br></br>
                 <UserCachesContainer 
                     filterCaches={this.filterCaches}
+                    // sortCaches={this.sortCaches}
                     // type={this.props.type}
                     rating={this.props.rating}
                     difficulty={this.props.difficulty}

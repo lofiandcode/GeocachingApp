@@ -5,7 +5,7 @@ const UserCaches = (props) => {
         <div className="userCacheDisplay">
 
                 Cache name: {props.cacheName}
-                <img src={props.cachePhoto}></img>
+                <div src={props.cachePhoto}></div>
                 <div>Hint: {props.cacheHint}</div><br></br>
             {/* <div className="field" /> */}
         </div>
