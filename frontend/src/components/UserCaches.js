@@ -7,7 +7,7 @@ const UserCaches = (props) => {
         <div className="text-center">
             <Accordion defaultActiveKey="1">
             <CardDeck>
-            <Card border="success" bg="light" style={{ width: '18rem' }}>
+            <Card border="secondary" bg="light" style={{ width: '18rem' }}>
             <Accordion.Toggle as={Card.Header} eventKey="0">
                     <Card.Title>{props.cacheName}</Card.Title>
                     </Accordion.Toggle>
