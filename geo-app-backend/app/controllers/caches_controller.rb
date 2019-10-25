@@ -14,6 +14,7 @@ class CachesController < ApplicationController
     end
 
     def create
+        puts cache_params
         @cache = Cache.new(cache_params)
         @cache.save
         render :json => @cache
@@ -35,6 +36,6 @@ class CachesController < ApplicationController
     end 
 
     def cache_params
-        params.require(:cache).permit(:id, :name, :photo, :size, :mystery, :hint, :coordinates, :warnings, :description)
+        params.require(:cache).permit(:id, :name, :photo, :size, :mystery, :hint, :warnings, :description, :coordinates => {})
     end
 end
