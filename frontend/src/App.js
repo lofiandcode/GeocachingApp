@@ -112,7 +112,7 @@ export default class App extends Component {
 
           {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/profile" component={UserContainer} />
-          <Route exact path="/map" component={MapContainer} />
+          <Route exact path="/map" component={() => <MapContainer caches={this.state.caches}/>} />
         </div>
       </Router>
     );
