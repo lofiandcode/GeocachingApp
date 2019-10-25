@@ -17,18 +17,18 @@ class UserContainer extends Component {
             currentUser: {}
         }
         // console.log(props)
-
-    constructor (props) {
-        super(props)
-        this.state = {
-            // users array holds: username, first, last, img_url, bio
-            cache_index: 0
-            // favorite_caches: [],
-            // todos: [],
-            // completed: []
-        }
-        console.log(this.props)
     }
+    // constructor (props) {
+    //     super(props)
+    //     this.state = {
+    //         // users array holds: username, first, last, img_url, bio
+    //         cache_index: 0
+    //         // favorite_caches: [],
+    //         // todos: [],
+    //         // completed: []
+    //     };
+    //     console.log(this.props);
+    // }
     
     componentDidMount() {
         fetch("http://localhost:3000/users")
@@ -81,6 +81,5 @@ class UserContainer extends Component {
             </div> 
         ) 
     }
-
 }
 export default UserContainer;

@@ -18,15 +18,15 @@ class MapContainer extends Component {
           showingInfoWindow: false,  //Hides or the shows the infoWindow
           activeMarker: {},          //Shows the active marker upon click
           selectedPlace: {},       //Shows the infoWindow to the selected place upon a marker
-  
-          caches: [
-            // {latitude: 47.6077, longitude: -122.3355},
-            {latitude: 37.7953, longitude: -122.4067},
-            {latitude: -33.867886, longitude: -63.987},
-            {latitude: 51.848637, longitude: -0.55462}
-                ]
         }
       };
+
+      // caches: [
+      //   // {latitude: 47.6077, longitude: -122.3355},
+      //   {latitude: 37.7953, longitude: -122.4067},
+      //   {latitude: -33.867886, longitude: -63.987},
+      //   {latitude: 51.848637, longitude: -0.55462}
+      //       ]
 
       onMarkerClick = (props, marker, e) =>
         this.setState({
@@ -62,6 +62,7 @@ class MapContainer extends Component {
               center={{lat: 47.6093, lng: -122.3384988}}
               height='300px'
               zoom={15}
+              caches={this.props.caches}
             />
 			    </div>
         );

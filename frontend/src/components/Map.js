@@ -21,7 +21,8 @@ class Map extends Component{
 			markerPosition: {
 				lat: this.props.center.lat,
 				lng: this.props.center.lng
-			}
+			},
+			markers: []
 		}
 	}
 	/**
@@ -49,7 +50,21 @@ class Map extends Component{
 				console.error( error );
 			}
 		);
+		this.setMarkers();
 	};
+
+	setMarkers = () => {
+		console.log("setMarkers props = ", this.props)
+		let markers = [];
+		if (this.props) {
+			markers = this.props.caches.map( cache => {
+				return {lat: cache.coordinates.lat, 
+					lng: cache.coordinates.lng, id: cache.id}
+			})
+		}
+		console.log("markers = ", markers)
+		this.setState({markers: markers}, () => console.log('this.state.markers = ', this.state.markers));
+	}
 	/**
 	 * Component should only update ( meaning re-render ), when the user selects the address, or drags the pin
 	 *
@@ -206,27 +221,44 @@ class Map extends Component{
 		})
 	};
 
+	// cachesToMap = () => {
+	// 	let markers = [];
+	// 	console.log(this.props.caches)
+	// 	if (this.props.caches) {
+	// 		console.log(this.props.caches)
+	// 		markers = this.props.caches.map(cache => {
+	// 			console.log(cache.coordinates.lat)
+	// 			return <Marker
+	// 			position={{ lat: cache.coordinates.lat, lng: cache.coordinates.lng}}
+	// 			key={cache.id}
+	// 			/>
+	// 	})
+	// 	} 
+	// 	console.log(markers)
+	// 	return markers;
+	// }
 
 	render(){
 		const AsyncMap = withScriptjs(
 			withGoogleMap(
 				props => (
+					<div>
+					{/* For Auto complete Search Box */}
+					<Autocomplete
+					style={{
+						width: '100%',
+						height: '40px',
+						paddingLeft: '16px',
+						marginTop: '2px',
+						marginBottom: '500px'
+					}}
+					onPlaceSelected={ this.onPlaceSelected }
+					types={['(regions)']}
+					/>
 					<GoogleMap google={ this.props.google }
 					           defaultZoom={ this.props.zoom }
 					           defaultCenter={{ lat: this.state.mapPosition.lat, lng: this.state.mapPosition.lng }}
 					>
-						{/* For Auto complete Search Box */}
-						<Autocomplete
-							style={{
-								width: '100%',
-								height: '40px',
-								paddingLeft: '16px',
-								marginTop: '2px',
-								marginBottom: '500px'
-							}}
-							onPlaceSelected={ this.onPlaceSelected }
-							types={['(regions)']}
-						/>
 						{/* InfoWindow on top of marker */}
 						<InfoWindow
 							onClose={this.onInfoWindowClose}
@@ -238,13 +270,21 @@ class Map extends Component{
 						</InfoWindow>
 						{/*Marker*/}
 						<Marker google={this.props.google}
-						        name={'Dolores park'}
+						        name={'Not Dolares Park'}
 						        draggable={true}
 						        onDragEnd={ this.onMarkerDragEnd }
 						        position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }}
 						/>
-						<Marker />
+						
+						{this.state.markers.map(marker => (
+							<Marker
+							position={{ lat: marker.lat, lng: marker.lng }}
+							key={marker.id}
+							/>
+						))}
+						<Marker position={{lat: 47.612953, lng: -122.340766}}/> 
 					</GoogleMap>
+					</div>
 				)
 			)
 		);
