@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
 import Login from './components/login/Login';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import "./App.css";
@@ -113,6 +114,12 @@ export default class App extends Component {
           {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/profile" component={UserContainer} />
           <Route exact path="/map" component={() => <MapContainer caches={this.state.caches}/>} />
+          <Route exact path="/profile" component={() =>       
+            <UserContainer users={this.state.users} caches={this.state.caches} 
+            // currentUser={this.state.currentUser}
+            />
+            } />
+          <Route exact path="/map" component={MapContainer} />
         </div>
       </Router>
     );

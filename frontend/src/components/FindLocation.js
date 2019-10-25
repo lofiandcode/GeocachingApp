@@ -13,7 +13,7 @@ export default class FindLocation extends Component {
 
     render() {
         return (
-            <div>FindLocation</div>
+            <div>Cache Me Outside!</div>
             // <form onSubmit={event => this.handleSubmit(event)}>
             //     <input
             //         type="text"

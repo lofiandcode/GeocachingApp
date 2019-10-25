@@ -1,8 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import UserCaches from '../components/UserCaches';
 import MoreButton from '../components/MoreButton';
-import UserSearchBar from '../components/UserSearchBar'
-// import UserForm from '../components/UserForm';
+import UserSearchBar from '../components/UserSearchBar';
 
 class UserCachesContainer extends Component {
     constructor(props) {
@@ -23,14 +22,16 @@ class UserCachesContainer extends Component {
                     <UserSearchBar
                         filterCaches={this.props.filterCaches}
                         // type={this.props.type}
-                        rating={this.props.rating}
-                        difficulty={this.props.difficulty}
+                        // rating={this.props.rating}
+                        // difficulty={this.props.difficulty}
                     />
                     {this.props.displayCaches.length > 0 ? <div>{this.props.displayCaches.map((cache, index) => {
                         return <UserCaches key={index}
                             cacheName={cache.name}
-                            // cachePhoto={cache.photo}
-                            cacheHint={cache.hint} 
+                            cachePhoto={cache.photo}
+                            cacheDescription={cache.description}
+                            cacheSize={cache.size}
+                            cacheHint={cache.hint}
                             />
                     }
 
