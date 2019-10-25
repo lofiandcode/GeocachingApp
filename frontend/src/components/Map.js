@@ -273,7 +273,8 @@ class Map extends Component{
 						        name={'Not Dolares Park'}
 						        draggable={true}
 						        onDragEnd={ this.onMarkerDragEnd }
-						        position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }}
+                                position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }}
+                                options={{icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}}
 						/>
 						
 						{this.state.markers.map(marker => (
